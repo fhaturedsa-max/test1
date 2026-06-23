@@ -35,7 +35,7 @@ class FirebaseService extends ChangeNotifier {
   }
 
   Future<void> _init() async {
-    var box = await Hive.openBox('easysell_cache');
+    var box = await Hive.openBox('saribulan_cache');
     final isSandboxCached = box.get('is_sandbox', defaultValue: false);
 
     if (isSandboxCached) {
@@ -103,7 +103,7 @@ class FirebaseService extends ChangeNotifier {
     _isSandbox = true;
     _user = null;
     
-    var box = await Hive.openBox('easysell_cache');
+    var box = await Hive.openBox('saribulan_cache');
     await box.put('is_sandbox', true);
     await box.put('sandbox_uid', 'sandbox_user');
 
@@ -250,8 +250,8 @@ class FirebaseService extends ChangeNotifier {
   }
 
   Future<void> _loadSandboxData(String sandboxUid) async {
-    var productsBox = await Hive.openBox('easysell_sandbox_products');
-    var salesBox = await Hive.openBox('easysell_sandbox_sales');
+    var productsBox = await Hive.openBox('saribulan_sandbox_products');
+    var salesBox = await Hive.openBox('saribulan_sandbox_sales');
 
     if (productsBox.isEmpty) {
       await seedInitialProducts();
@@ -269,7 +269,7 @@ class FirebaseService extends ChangeNotifier {
   }
 
   Future<void> _saveSandboxProductsToDisk() async {
-    var productsBox = await Hive.openBox('easysell_sandbox_products');
+    var productsBox = await Hive.openBox('saribulan_sandbox_products');
     await productsBox.clear();
     for (var p in _products) {
       await productsBox.put(p.id, p.toMap());
@@ -277,7 +277,7 @@ class FirebaseService extends ChangeNotifier {
   }
 
   Future<void> _saveSandboxSalesToDisk() async {
-    var salesBox = await Hive.openBox('easysell_sandbox_sales');
+    var salesBox = await Hive.openBox('saribulan_sandbox_sales');
     await salesBox.clear();
     for (var s in _sales) {
       await salesBox.put(s.id, s.toMap());
@@ -458,7 +458,7 @@ class FirebaseService extends ChangeNotifier {
 
     if (_isSandbox) {
       _profile = updated;
-      var box = await Hive.openBox('easysell_cache');
+      var box = await Hive.openBox('saribulan_cache');
       await box.put('business_name', name);
       await box.put('business_address', address);
       await box.put('business_phone', phone);
@@ -476,7 +476,7 @@ class FirebaseService extends ChangeNotifier {
     _cancelSubscriptions();
     _isSandbox = false;
 
-    var box = await Hive.openBox('easysell_cache');
+    var box = await Hive.openBox('saribulan_cache');
     await box.delete('is_sandbox');
     await box.delete('sandbox_uid');
 

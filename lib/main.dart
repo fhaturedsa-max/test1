@@ -14,9 +14,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   await Hive.initFlutter();
-  await Hive.openBox('easysell_cache');
-  await Hive.openBox('easysell_sandbox_products');
-  await Hive.openBox('easysell_sandbox_sales');
+  await Hive.openBox('saribulan_cache');
+  await Hive.openBox('saribulan_sandbox_products');
+  await Hive.openBox('saribulan_sandbox_sales');
 
   try {
     await Firebase.initializeApp();

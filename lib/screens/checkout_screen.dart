@@ -549,7 +549,6 @@ class _CheckoutScreenState extends State<CheckoutScreen> {
                               foregroundColor: const Color(0xFF0F172A),
                               disabledBackgroundColor: const Color(0xFFF1F5F9),
                               shape: RoundedRectangleBorder(
-                                child: null,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               elevation: 0,

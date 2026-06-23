@@ -33,7 +33,7 @@ class BusinessProfile {
     return BusinessProfile(
       userId: map['userId'] ?? '',
       email: map['email'] ?? '',
-      businessName: map['businessName'] ?? 'EasySell Store',
+      businessName: map['businessName'] ?? 'CV. SARI BULAN',
       businessAddress: map['businessAddress'] ?? '',
       phone: map['phone'] ?? '',
       currency: map['currency'] ?? r'$',

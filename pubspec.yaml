@@ -1,5 +1,5 @@
-name: easysell_pos
-description: A polished Cloud-Synchronized Point of Sale (POS) system for small and medium businesses built with Flutter & Firebase.
+name: sari_bulan_pos
+description: Sistem Kasir Pintar (POS) Cloud Terintegrasi untuk CV. SARI BULAN built with Flutter & Firebase.
 version: 1.0.0+1
 
 environment:
