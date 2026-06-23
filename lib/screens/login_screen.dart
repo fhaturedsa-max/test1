@@ -108,7 +108,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           const SizedBox(width: 12),
                           const Text(
-                            "Easy",
+                            "CV. SARI ",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w900,
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                           const Text(
-                            "Sell",
+                            "BULAN",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: FontWeight.w900,

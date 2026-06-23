@@ -29,18 +29,18 @@ void main() async {
       providers: [
         ChangeNotifierProvider(create: (_) => FirebaseService()),
       ],
-      child: const EasySellApp(),
+      child: const SariBulanApp(),
     ),
   );
 }
 
-class EasySellApp extends StatelessWidget {
-  const EasySellApp({super.key});
+class SariBulanApp extends StatelessWidget {
+  const SariBulanApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'EasySell POS Terminal',
+      title: 'CV. SARI BULAN POS Terminal',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'SF Pro Display',
@@ -134,7 +134,7 @@ class _TerminalDashboardWrapperState extends State<TerminalDashboardWrapper> {
     final profile = service.profile;
 
     final isSandbox = service.isSandbox;
-    final outletName = profile?.businessName ?? "EasySell Main Outlet";
+    final outletName = profile?.businessName ?? "CV. SARI BULAN Outlet";
     final outletTax = profile?.taxRate ?? 10.0;
     final outletCurrency = profile?.currency ?? r"$";
 
@@ -160,11 +160,11 @@ class _TerminalDashboardWrapperState extends State<TerminalDashboardWrapper> {
                 Row(
                   children: [
                     const Text(
-                      "Easy",
+                      "Sari ",
                       style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.black),
                     ),
                     const Text(
-                      "Sell",
+                      "Bulan",
                       style: TextStyle(color: Colors.emerald, fontSize: 16, fontWeight: FontWeight.black),
                     ),
                     const SizedBox(width: 8),

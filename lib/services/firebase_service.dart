@@ -44,8 +44,8 @@ class FirebaseService extends ChangeNotifier {
       
       _profile = BusinessProfile(
         userId: sandboxUserId,
-        email: 'guest@easysell.pos',
-        businessName: box.get('business_name', defaultValue: 'EasySell Guest Outlet'),
+        email: 'guest@saribulan.pos',
+        businessName: box.get('business_name', defaultValue: 'Sari Bulan Guest Outlet'),
         businessAddress: box.get('business_address', defaultValue: 'Suite 101, Retail Hub Plaza'),
         phone: box.get('business_phone', defaultValue: '+99 555 1010'),
         currency: box.get('business_currency', defaultValue: r'$'),
@@ -83,8 +83,8 @@ class FirebaseService extends ChangeNotifier {
       } else {
         final defaultProfile = BusinessProfile(
           userId: uid,
-          email: _auth.currentUser?.email ?? 'outlet@easysell.pos',
-          businessName: 'EasySell Main Outlet',
+          email: _auth.currentUser?.email ?? 'outlet@saribulan.pos',
+          businessName: 'CV. SARI BULAN Outlet',
           businessAddress: 'No. 1 Retail Center Plaza',
           phone: '+1 (555) 0184',
           currency: r'$',
@@ -109,8 +109,8 @@ class FirebaseService extends ChangeNotifier {
 
     _profile = BusinessProfile(
       userId: 'sandbox_user',
-      email: 'guest@easysell.com',
-      businessName: 'EasySell Guest Outlet',
+      email: 'guest@saribulan.com',
+      businessName: 'Sari Bulan Guest Outlet',
       businessAddress: 'Suite 101, Retail Hub Plaza',
       phone: '+44 020 7496',
       currency: r'$',

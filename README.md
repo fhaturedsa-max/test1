@@ -1,6 +1,6 @@
-# EasySell POS – Terminal Kasir Pintar (Flutter & Firebase)
+# CV. SARI BULAN POS – Terminal Kasir Pintar (Flutter & Firebase)
 
-EasySell POS adalah aplikasi Point of Sale (POS) modern, cepat, dan handal yang dirancang khusus untuk bisnis retail dan e-commerce. Aplikasi ini dibuat menggunakan **Flutter** untuk antarmuka pengguna yang responsif serta **Firebase Firestore & Authentication** untuk sinkronisasi data cloud secara langsung dan aman.
+CV. SARI BULAN POS adalah aplikasi Point of Sale (POS) modern, cepat, dan handal yang dirancang khusus untuk manajemen bisnis retail, stok barang, pembukuan kasir, dan e-commerce. Aplikasi ini dibuat menggunakan **Flutter** untuk antarmuka pengguna yang responsif serta **Firebase Firestore & Authentication** untuk sinkronisasi data cloud secara langsung dan aman.
 
 ## Fitur Utama
 
@@ -26,7 +26,7 @@ Pastikan lingkungan kerja (*development environment*) Anda telah terinstal tools
 
 ## Langkah Instalasi & Menjalankan Aplikasi
 
-Ikuti langkah-langkah di bawah ini untuk mengunduh, mengonfigurasi, dan menjalankan aplikasi EasySell POS di laptop/komputer Anda:
+Ikuti langkah-langkah di bawah ini untuk mengunduh, mengonfigurasi, dan menjalankan aplikasi CV. SARI BULAN POS di laptop/komputer Anda:
 
 ### 1. Clone Repositori
 Clone proyek ini dari repositori GitHub Anda:
@@ -45,7 +45,7 @@ flutter pub get
 Aplikasi ini dikonfigurasi menggunakan Firebase. Agar dapat berjalan dengan Firebase DB Anda sendiri, pasang konfigurasi platform khusus Anda:
 
 -   **Untuk Android**:
-    1. Buat aplikasi Android baru di Firebase Console Anda dengan nama paket (*package name*) yang sesuai (contoh: `com.example.easysell`).
+    1. Buat aplikasi Android baru di Firebase Console Anda dengan nama paket (*package name*) yang sesuai (contoh: `com.example.saribulan`).
     2. Unduh file `google-services.json`.
     3. Tempatkan file tersebut di direktori: `android/app/google-services.json`.
 
@@ -119,7 +119,7 @@ Untuk meng-upload atau melakukan sinkronisasi project ini ke akun GitHub Anda se
       ```bash
       git init
       git add .
-      git commit -m "Inisialisasi EasySell POS Production Grade"
+      git commit -m "Inisialisasi CV. SARI BULAN POS Production Grade"
       git branch -M main
       git remote add origin https://github.com/username_github_anda/nama_repo.git
       git push -u origin main
@@ -127,4 +127,4 @@ Untuk meng-upload atau melakukan sinkronisasi project ini ke akun GitHub Anda se
 
 ---
 
-*EasySell POS dibangun dengan kepatuhan tinggi terhadap performa, keamanan, dan keindahan pengalaman pengguna.*
+*CV. SARI BULAN POS dibangun dengan kepatuhan tinggi terhadap performa, keamanan, dan keindahan pengalaman pengguna.*

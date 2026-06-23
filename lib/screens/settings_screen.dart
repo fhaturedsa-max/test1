@@ -89,7 +89,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                         controller: _nameController,
                         decoration: const InputDecoration(
                           labelText: "Store Outlet Name",
-                          hintText: "EasySell Main Outlet",
+                          hintText: "CV. SARI BULAN Main Outlet",
                         ),
                         validator: (v) => v == null || v.isEmpty ? "Require name" : null,
                       ),
