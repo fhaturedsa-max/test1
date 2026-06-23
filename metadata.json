@@ -1,0 +1,6 @@
+{
+  "name": "CV. SARI BULAN",
+  "description": "A comprehensive Flutter POS, Customer E-commerce & inventory management platform for CV. SARI BULAN syncing live with Firestore, featuring Admin and Customer modules with custom statistics, invoices, and reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

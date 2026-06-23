@@ -1,0 +1,73 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions for common validations
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    // Entity validation functions
+    function isValidUser(data) {
+      return data.keys().hasAll(['userId', 'email'])
+        && data.userId == request.auth.uid
+        && data.email is string
+        && (!data.keys().contains('businessName') || data.businessName is string)
+        && (!data.keys().contains('businessAddress') || data.businessAddress is string)
+        && (!data.keys().contains('phone') || data.phone is string)
+        && (!data.keys().contains('currency') || data.currency is string)
+        && (!data.keys().contains('taxRate') || data.taxRate is number);
+    }
+
+    function isValidProduct(data) {
+      return data.keys().hasAll(['id', 'userId', 'name', 'sellingPrice', 'stockLevel'])
+        && data.userId == request.auth.uid
+        && data.id is string
+        && data.name is string
+        && data.name.size() > 0
+        && data.sellingPrice is number
+        && data.sellingPrice >= 0
+        && data.stockLevel is number
+        && (!data.keys().contains('barcode') || data.barcode is string)
+        && (!data.keys().contains('category') || data.category is string)
+        && (!data.keys().contains('costPrice') || data.costPrice is number)
+        && (!data.keys().contains('lowStockThreshold') || data.lowStockThreshold is number);
+    }
+
+    function isValidSale(data) {
+      return data.keys().hasAll(['id', 'userId', 'items', 'totalAmount', 'paymentMethod', 'createdAt'])
+        && data.userId == request.auth.uid
+        && data.id is string
+        && data.items is list
+        && data.totalAmount is number
+        && data.paymentMethod is string
+        && (data.paymentMethod == 'cash' || data.paymentMethod == 'card' || data.paymentMethod == 'bank')
+        && data.createdAt is string;
+    }
+
+    // Rules matching the blueprint paths
+    match /users/{userId} {
+      allow read, write: if isOwner(userId) && (request.resource == null || isValidUser(request.resource.data));
+
+      match /products/{productId} {
+        allow read: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(productId) && isValidProduct(request.resource.data);
+        allow delete: if isOwner(userId) && isValidId(productId);
+      }
+
+      match /sales/{saleId} {
+        allow read: if isOwner(userId);
+        allow create, update: if isOwner(userId) && isValidId(saleId) && isValidSale(request.resource.data);
+        allow delete: if isOwner(userId) && isValidId(saleId);
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+name: easysell_pos
+description: A polished Cloud-Synchronized Point of Sale (POS) system for small and medium businesses built with Flutter & Firebase.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Firebase Core and Services
+  firebase_core: ^2.15.0
+  firebase_auth: ^4.7.0
+  cloud_firestore: ^4.8.0
+
+  # Offline caching & Local Storage
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+
+  # State Management & Utilities
+  provider: ^6.0.5
+  intl: ^0.18.1
+  lucide_icons: ^0.300.0
+  fl_chart: ^0.63.0 # Stunning Material 3 interactive charts
+  uuid: ^3.0.7
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  hive_generator: ^2.0.1
+  build_runner: ^2.4.6
+
+flutter:
+  uses-material-design: true

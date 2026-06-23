@@ -1,0 +1,134 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Business profile representing a shop or business owner",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "UID of the registered owner matching Firebase Auth"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "businessName": {
+          "type": "string",
+          "description": "Name of the business, e.g. EasySell Main"
+        },
+        "businessAddress": {
+          "type": "string",
+          "description": "Physical shop location"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Business contact phone number"
+        },
+        "currency": {
+          "type": "string",
+          "description": "Currency symbol or code, e.g. $, €, £, ¥"
+        },
+        "taxRate": {
+          "type": "number",
+          "description": "Standard business tax rate percentage, e.g. 10.0"
+        }
+      },
+      "required": ["userId", "email"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "An inventory item tracked by this business",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique key or generated ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Owner business ID"
+        },
+        "name": {
+          "type": "string",
+          "description": "Product title"
+        },
+        "barcode": {
+          "type": "string",
+          "description": "UPC/EAN or SKU barcode"
+        },
+        "category": {
+          "type": "string",
+          "description": "Inventory categorization tag"
+        },
+        "sellingPrice": {
+          "type": "number",
+          "description": "Customer purchase price"
+        },
+        "costPrice": {
+          "type": "number",
+          "description": "Wholesale acquisition cost"
+        },
+        "stockLevel": {
+          "type": "number",
+          "description": "Count of items currently present in shop inventory"
+        },
+        "lowStockThreshold": {
+          "type": "number",
+          "description": "Trigger alert at or below this stock level"
+        },
+        "updatedAt": {
+          "type": "string",
+          "description": "ISO timestamp of last inventory count modify"
+        }
+      },
+      "required": ["id", "userId", "name", "sellingPrice", "stockLevel"]
+    },
+    "Sale": {
+      "title": "Sale",
+      "description": "Record of a checkout transaction at the register",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique purchase transaction receipt ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "Identifier of the business owner"
+        },
+        "items": {
+          "type": "array",
+          "description": "Detailed cart list"
+        },
+        "totalAmount": {
+          "type": "number",
+          "description": "Gross cash transaction total"
+        },
+        "paymentMethod": {
+          "type": "string",
+          "description": "Mode of financial exchange (cash, card, bank)"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "ISO execution purchase datetime"
+        }
+      },
+      "required": ["id", "userId", "items", "totalAmount", "paymentMethod", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Access profile for business account owners"
+    },
+    "/users/{userId}/products/{productId}": {
+      "schema": "Product",
+      "description": "Personal product stocks list for specific business"
+    },
+    "/users/{userId}/sales/{saleId}": {
+      "schema": "Sale",
+      "description": "Past successful register checkouts list in chronological order"
+    }
+  }
+}
